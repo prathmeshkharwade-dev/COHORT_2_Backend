@@ -6,7 +6,7 @@ function App() {
   const [ notes, setNotes ] = useState([])
 
   function fetchNotes(){
-     axios.get('http://localhost:3000/api/notes')
+     axios.get('https://cohort-2-backend-1-zam7.onrender.com/api/notes')
       .then((res)=>{
         setNotes(res.data.notes)
        })
@@ -24,7 +24,7 @@ function App() {
 
     console.log (title.value, description.value)
 
-    axios.post("http://localhost:3000/api/notes",{
+    axios.post("https://cohort-2-backend-1-zam7.onrender.com/api/notes",{
       title: title.value,
       description: description.value
     })
@@ -37,7 +37,7 @@ function App() {
   }
 
   function handleDeleteNote(noteID){
-      axios.delete('http://localhost:3000/api/notes/' + noteID)
+      axios.delete('https://cohort-2-backend-1-zam7.onrender.com/api/notes/' + noteID)
       .then(res=> {
         console.log(res.data);
         fetchNotes()
@@ -45,7 +45,7 @@ function App() {
       })
   }
   function handleUpdateNote(noteID){
-    axios.update('http://localhost:3000/api/notes/' + noteID)
+    axios.update('https://cohort-2-backend-1-zam7.onrender.com/api/notes/' + noteID)
 
   }
 
