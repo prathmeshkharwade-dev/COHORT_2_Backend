@@ -40,7 +40,7 @@ app.get("/api/notes", async (req, res) => {
     const notes = await noteModel.find()
 
     res.status(200).json({
-        message: "Notes fetched successfully.",
+        message: "Notes fetched successfully ....",
         notes
     })
 })
@@ -55,7 +55,7 @@ app.delete('/api/notes/:id', async (req, res) => {
     await noteModel.findByIdAndDelete(id)
 
     res.status(200).json({
-        message: "Note deleted successfully."
+        message: "Note deleted successfully...."
     })
 })
 
@@ -71,7 +71,7 @@ app.patch('/api/notes/:id', async (req, res) => {
     await noteModel.findByIdAndUpdate(id, { description })
 
     res.status(200).json({
-        message: "Note updated successfully."
+        message: "Note updated successfully....."
     })
 
 })
