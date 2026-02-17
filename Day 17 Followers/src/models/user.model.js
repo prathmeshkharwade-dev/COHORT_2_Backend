@@ -19,7 +19,24 @@ const userSchema = new mongoose.Schema({
     profileImage: {
         type: String,
         default:""
-    }
+    },
+
+// /**
+//  * 2000
+//  * id = 12 bytes
+//  */
+//     followers: [{
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: "user"
+//     }],
+//     following: [{
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: "user"
+//     }],
+//     posts: [{
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: "user"
+//     }]
 })
 
 const userModel = mongoose.model("users", userSchema)
