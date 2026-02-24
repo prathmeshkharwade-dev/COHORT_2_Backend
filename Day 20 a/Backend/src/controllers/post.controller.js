@@ -12,10 +12,6 @@ const imagekit = new ImageKit({
 async function createPostController(req, res) {
 
 
-
-
-
-
     const file = await imagekit.files.upload({
         file: await toFile(Buffer.from(req.file.buffer), 'file'),
         fileName: "Test",
@@ -107,9 +103,19 @@ async function likePostController(req, res) {
 }
 
 
+async function getFeedController( req, res) {
+    const posts = await postModel.find().populate("user")
+
+    res.status(200).json ({
+        message: "posts fetch successfully.",
+        posts
+    })
+}
+
 module.exports = {
     createPostController,
     getPostController,
     getPostDetailsController,
-    likePostController
+    likePostController,
+    getFeedController
 }
