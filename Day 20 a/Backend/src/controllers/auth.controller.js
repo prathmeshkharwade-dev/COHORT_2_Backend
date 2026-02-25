@@ -39,7 +39,13 @@ async function registerController(req, res) {
         { expiresIn: "1d" }
     )
 
-    res.cookie("token", token)
+    // res.cookie("token", token)
+    res.cookie("token", token, {
+    httpOnly: true,   // JS cannot access
+    secure: false,    // development, production: true
+    sameSite: "lax",  // allows localhost cross-origin
+    path: "/"         // ensures cookie sent on all routes
+})
 
     res.status(201).json({
         message: "User Registered successfully",
@@ -100,7 +106,13 @@ async function loginController(req, res) {
         { expiresIn: "1d" }
     )
 
-    res.cookie("token", token)
+    // res.cookie("token", token)
+    res.cookie("token", token, {
+    httpOnly: true,   // JS cannot access
+    secure: false,    // development, production: true
+    sameSite: "lax",  // allows localhost cross-origin
+    path: "/"         // ensures cookie sent on all routes
+})
 
 
     res.status(200)
