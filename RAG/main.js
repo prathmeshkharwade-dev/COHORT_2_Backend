@@ -53,8 +53,6 @@ const embeddings = new MistralAIEmbeddings({
 const queryEmbedding = await embeddings.embedQuery("how was the internship experience?");
 
 
-
-
 console.log(queryEmbedding)
 
 const result = await index.query({
